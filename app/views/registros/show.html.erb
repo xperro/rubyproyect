@@ -1,0 +1,97 @@
+<div style="width:90%;margin:auto;">
+
+<p id="notice"><%= notice %></p>
+<h1 class="flow-text">Guia   <%= @registro.guia %></h1>
+
+
+
+
+<p class="field">
+  <strong>Guia:</strong>
+  <%= @registro.guia %>
+</p>
+
+<p class="field">
+  <strong>Ref:</strong>
+  <%= @registro.ref %>
+</p>
+
+<p class="field">
+  <strong>Estado:</strong>
+  <%= if (@registro.estado)
+        @registro.estado.upcase
+      end
+  %>
+</p>
+
+<p class="field">
+  <strong>Fecha salida:</strong>
+  <%= if (@registro.fecha_salida)
+        @registro.fecha_salida.upcase
+      end
+  %>
+</p>
+
+<p class="field">
+  <strong>Promesa de entrega:</strong>
+  <%= if (@registro.promesa_de_entrega)
+        @registro.promesa_de_entrega.upcase
+      end
+  %>
+</p>
+
+<p class="field">
+  <strong>Dias de retraso:</strong>
+  <%= @registro.dias_de_retraso %>
+</p>
+
+<p class="field">
+  <strong>Intentos de entrega:</strong>
+  <%= @registro.intentos_de_entrega %>
+</p>
+
+<p class="field">
+  <strong>Nombre:</strong>
+  <%= if (@registro.nombre)
+        @registro.nombre.upcase
+      end
+  %>
+</p>
+
+<p class="field">
+  <strong>Direccion:</strong>
+  <%= if (@registro.direccion)
+        @registro.direccion.upcase
+      end
+  %>
+</p>
+
+<p class="field">
+  <strong>Informacion adicional:</strong>
+  <%= if (@registro.informacion_adicional)
+        @registro.informacion_adicional.upcase
+      end
+  %>
+</p>
+
+<p class="field">
+  <strong>Adicional:</strong>
+  <%= @registro.adicional %>
+</p>
+
+<p class="field">
+  <strong>Ind inter:</strong>
+  <%= @registro.ind_inter %>
+</p>
+
+<p class="field">
+  <strong>Comentarios:</strong>
+  <%= if (@registro.comentarios)
+        @registro.comentarios.upcase
+      end
+  %>
+</p>
+
+<%= link_to 'Editar', edit_registro_path(@registro), :class=>"btn waves-effect waves-light" %> |
+<%= link_to 'Volver', registros_path, :class=>"btn waves-effect waves-light" %>
+</div>

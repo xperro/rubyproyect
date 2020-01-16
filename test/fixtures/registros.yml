@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guia: MyString
+  ref: MyString
+  estado: MyString
+  fecha_salida: MyString
+  promesa_de_entrega: MyString
+  dias_de_retraso: MyString
+  intentos_de_entrega: MyString
+  nombre: MyString
+  direccion: MyString
+  informacion_adicional: MyString
+  adicional: MyString
+  ind_inter: MyString
+  comentarios: MyString
+
+two:
+  guia: MyString
+  ref: MyString
+  estado: MyString
+  fecha_salida: MyString
+  promesa_de_entrega: MyString
+  dias_de_retraso: MyString
+  intentos_de_entrega: MyString
+  nombre: MyString
+  direccion: MyString
+  informacion_adicional: MyString
+  adicional: MyString
+  ind_inter: MyString
+  comentarios: MyString

@@ -1,0 +1,129 @@
+<p id="notice"><%= notice %></p>
+<div style="width:90%;margin:auto;">
+  <h1 class="flow-text">Guías</h1>
+  <div class="row">
+    <div class="col s6">
+    <%= form_with(model: @registro, local: true) do |import| %>
+      <%= import.file_field :attachment , { :class => 'btn waves-effect waves-light grey lighten-3',:style => 'color:black;' } %>
+      <%= import.submit "Importar Csv" , { :class => 'btn waves-effect waves-light' }  %>
+    <% end %>
+    </div>
+    <div class="col s6" style="text-align: right;">
+      <%= link_to 'Nuevo Registro', new_registro_path, { :class => 'btn waves-effect waves-light' }  %>
+
+    </div>
+  </div>
+  <div class="col s12" style="">
+    <div class="col s12">
+      <div class="digg_pagination">
+          <div class="page_info">
+            <%= page_entries_info @registros %>
+          </div>
+          <div style="float:right">
+          <%= will_paginate @registros, :container => false,:previous_label => 'Anterior', :next_label => 'Siguiente' %>
+          </div>
+      </div>
+        <br>
+
+
+    </div>
+      <table id="egloptable" class="col s10 display" style="
+      overflow: overlay;
+        display: block;
+        width: 81%;
+        margin-left: 10%;
+        padding-right: 10%;">
+        <thead>
+          <tr>
+            <th class="fix" style="center">Acciones</th>
+            <th>Guia</th>
+            <th>Ref</th>
+            <th>Estado</th>
+            <th>Salida</th>
+            <th>Promesa</th>
+            <th>Retraso</th>
+            <th>Intentos</th>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Informacion</th>
+            <th>Adic</th>
+            <th>Ind</th>
+            <th>Comentarios</th>
+        </tr>
+        </thead>
+
+        <tbody>
+          <% @registros.each do |registro| %>
+            <tr style="height: 165px!important;">
+              <td class="fix" style="text-align:center;width: 100px;"><p style="margin-bottom: -10px;"><%= link_to 'Ver', registro,{ :style=>'width:60px;',:class=>"btn waves-effect waves-light  deep-purple lighten-3" } %></p>
+              <p style="margin-bottom: -10px;"><%= link_to 'Editar', edit_registro_path(registro) ,{ :style=>'width:60px;',:class=>"btn waves-effect waves-light   indigo lighten-3" } %></p>
+              <p style="margin-bottom: -10px;"><%= link_to 'Eliminar', registro, method: :delete, data: { confirm: 'Confirma eliminación?' },:style=>'width:60px;',:class=>"btn waves-effect waves-light   indigo lighten-3" %></p></td>
+              <td><%= registro.guia %></td>
+              <td><%= registro.ref %></td>
+              <td>
+                <%= if (registro.estado)
+                      registro.estado.upcase
+                    end
+                %>
+              </td>
+              <td>
+                <%= if (registro.fecha_salida)
+                      registro.fecha_salida.upcase
+                    end
+                %>
+              </td>
+              <td>
+                <%= if (registro.promesa_de_entrega)
+                      registro.promesa_de_entrega.upcase
+                    end
+                %>
+              </td>
+              <td><%= registro.dias_de_retraso %></td>
+              <td><%= registro.intentos_de_entrega %></td>
+              <td>
+                <%= if (registro.nombre)
+                      registro.nombre.upcase
+                    end
+                %>
+              </td>
+              <td>
+                <%= if (registro.direccion)
+                      registro.direccion.upcase
+                    end
+                %>
+              </td>
+              <td><%= registro.informacion_adicional %></td>
+              <td><%= registro.adicional %></td>
+              <td><%= registro.ind_inter %></td>
+              <td><%= registro.comentarios %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+  </div>
+  <div class="col s12">
+    <div class="digg_pagination">
+        <div class="page_info">
+          <%= page_entries_info @registros %>
+        </div>
+        <div style="float:right">
+        <%= will_paginate @registros, :container => false,:previous_label => 'Anterior', :next_label => 'Siguiente' %>
+        </div>
+    </div>
+      <br>
+
+
+  </div>
+</div>
+<script type="text/javascript">
+
+  $(document).ready( function () {
+    $('#egloptable').DataTable({
+      "paging":   false,
+       "ordering": false,
+       "info":     false
+    });
+} );
+</script>
